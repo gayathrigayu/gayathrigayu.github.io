@@ -219,7 +219,16 @@ $option: #320a28;
             font-size: 16px;
         }
     }
+    .mob-view{
+        display: none;
+    }
     @media only screen and (max-width: $small) {
+        .pricing-table{
+            display: none;
+        }
+        .mob-view{
+            display: block;
+        }
     /*mobile layout */
 
         .card-body {
