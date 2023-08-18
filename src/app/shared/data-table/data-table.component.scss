@@ -222,6 +222,9 @@ $option: #320a28;
     .mob-view{
         display: none;
     }
+    .apply-box{
+        display: flex;
+    }
     @media only screen and (max-width: $small) {
         .pricing-table{
             display: none;
@@ -325,3 +328,13 @@ select {
     }
 }
 
+/* mat css override starts*/
+
+::ng-deep {
+    .pricing-table .mat-accordion > .mat-expansion-panel {
+        border: 0;
+        box-shadow: none;
+    }
+   }
+
+   /* mat css override ends */

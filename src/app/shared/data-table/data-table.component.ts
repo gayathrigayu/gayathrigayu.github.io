@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {MatAccordion, MatExpansionModule} from '@angular/material/expansion';
 @Component({
   selector: 'app-data-table',
   templateUrl: './data-table.component.html',
