@@ -1,115 +1,182 @@
 <div class="center-width">
-  
-
-   <!-- Mobile View -->
-  <div class="container mob-view">
-    <div class="row">
-      <div class="card-body" *ngFor="let record of dataSource;let m = index;">
-            <div class="card-component" *ngFor="let item of record.list;let i = index;">
-        
-              <h5 class="card-title text-muted text-uppercase text-center">{{record.name}}</h5>
-              <h6 class="card-price text-center">${{item.selectedVariationPrice}}<span class="period">/month</span></h6>
-              <hr>
-                  <div class="scope-name">{{item.name}}</div>
-                  <div class="scope-info">
-                  <ng-container *ngIf="item.scope">
-                    <i class="fa fa-info-circle cursor-pointer" (click)="onPopupClick(i , m)"></i>
-                    <div *ngIf="selectedIndex == i && selectedParentIndex == m" class="popuptext">
-                      <div class="popup-panel">
-                    <div class="fa fa-close cursor-pointer close-icon" (click)="onPopupClick(i , m, 'close')"></div>
-                    <div> Scope </div>
-                    <div class="popup-content" [innerHtml]="item.scope"></div>
-                      </div>
-                    </div>
-                  </ng-container>
-                  </div>
-                  <div class="dropdown-selected" (change)="onVariationSelectDropdown($event, i , m)">
-                    <select  class='form-control'>
-                      <option id="{{item.price1}}" value='{{item.variations1}}'>{{item.variations1}}</option>
-                      <option id="{{item.price2}}"value='{{item.variations2}}'>{{item.variations2}}</option>
-                      <option id="{{item.price3}}" value='{{item.variations3}}'>{{item.variations3}}</option>
-                    </select>
-                  </div>
-                  
-                  <div class="button-div">
-                    <button class="button button3">Get Started</button>
-                  </div>
-              </div>
+  <div class="overlay" *ngIf="popup">
+    <div class="popup">
+      <h2>Enter your details below</h2>
+      <a class="close" (click)="popup = false">&times;</a>
+      <div class="content">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input
+              type="text"
+              formControlName="fullname"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
+            />
+            <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+              <div *ngIf="f['fullname'].errors['required']">Fullname is required</div>
+            </div>
           </div>
-      </div>
-  </div>
-       <!-- Mobile View Ends -->
-  <h1 class="heading1">Security, Performance, and Reliability - all in one package</h1>
-  <div class="full-width">
-    <div class="text-left"><h2 class="heading2">Need help getting started? Get a personalized recommendation.</h2></div>
-    <div class="text-right">
-      <div class="apply-box">
-      <button class="button button3">Get Started</button>
-      <div>100</div>
+      
+          <div class="form-group">
+            <label>Last Name</label>
+            <input
+              type="text"
+              formControlName="username"
+              class="form-control"
+              
+            />
+          </div>
+      
+          <div class="form-group">
+            <label>Email</label>
+            <input
+              type="text"
+              formControlName="email"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+            />
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+              <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Register</button>
+          
+          </div>
+        </form>
       </div>
     </div>
   </div>
-<div class="pricing-table">
-  <div class="" *ngFor="let record of dataSource;let m = index;">
 
+  <!-- Mobile View -->
+  <div class="container mob-view">
+    <div class="row">
+      <div class="card-body" *ngFor="let record of dataSource;let m = index;">
+        <div class="card-component" *ngFor="let item of record.list;let i = index;">
 
-
-  <!-- #docregion multi -->
-<mat-accordion class="example-headers-align" multi >
-  <!-- #enddocregion multi -->
-    <mat-expansion-panel [expanded]="m==0 || m==1">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <table class="">
-          <thead>
-            <tr>           
-             <th class="table-heading1">{{record.name}}</th>
-             <th><div class="months-title">1st Month</div></th>
-             <th><div class="months-title">2nd Month</div></th>
-             <th><div class="months-title">3rd Month</div></th>
-            </tr>
-       </thead>
-       <tbody> 
-        
-      </tbody>
-    </table>   
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <table class="">
-        <tbody>
-      <tr *ngFor="let item of record.list;let i = index;">           
-        <td >
+          <h5 class="card-title text-muted text-uppercase text-center">{{record.name}}</h5>
+          <h6 class="card-price text-center">${{item.selectedVariationPrice}}<span class="period">/month</span></h6>
+          <hr>
           <div class="scope-name">{{item.name}}</div>
           <div class="scope-info">
-          <ng-container *ngIf="item.scope">
-            <i class="fa fa-info-circle cursor-pointer" (click)="onPopupClick(i , m)" aria-hidden="true"></i>
-            <div *ngIf="selectedIndex == i" class="popuptext">
-              <div class="popup-panel">
-            <div class="fa fa-close cursor-pointer close-icon" (click)="onPopupClick(i , m , 'close')"></div>
-            <div> Scope </div>
-            <div class="popup-content" [innerHtml]="item.scope"></div>
+            <ng-container *ngIf="item.scope">
+              <i class="fa fa-info-circle cursor-pointer" (click)="onPopupClick(i , m)"></i>
+              <div *ngIf="selectedIndex == i && selectedParentIndex == m" class="popuptext">
+                <div class="popup-panel">
+                  <div class="fa fa-close cursor-pointer close-icon" (click)="onPopupClick(i , m, 'close')"></div>
+                  <div> Scope </div>
+                  <div class="popup-content" [innerHtml]="item.scope"></div>
+                </div>
               </div>
-            </div>
-          </ng-container>
+            </ng-container>
           </div>
-        </td>
-         <td [ngClass]="{'currentlyactive': item.selectedVariation == item.variations1 && item.selectedVariationPrice == item.price1}">
-          <label>{{item.variations1}}</label><input type="radio" [value]="item.variations1" id="{{item.name}}" name="{{item.name}}" (change)="onVariationSelect(item.name, item.variations1, i , m , item.price1)" checked/>
-          <div><span class="currency">£</span><span class="currency-amount">{{item.price1}}</span></div>
-        </td>
-         <td [ngClass]="{'currentlyactive': item.selectedVariation == item.variations2 && item.selectedVariationPrice == item.price2}"><label>{{item.variations2}}</label><input type="radio" [value]="item.variations2" id="{{item.name}}" name="{{item.name}}" (change)="onVariationSelect(item.name, item.variations2, i,  m , item.price2)"/>
-          <div><span class="currency">£</span><span class="currency-amount">{{item.price2}}</span></div>
-        </td>
-         <td [ngClass]="{'currentlyactive': item.selectedVariation == item.variations3 && item.selectedVariationPrice == item.price3}"><label>{{item.variations3}}</label><input type="radio" [value]="item.variations3" id="{{item.name}}" name="{{item.name}}" (change)="onVariationSelect(item.name, item.variations3, i,  m , item.price3)"/>
-          <div><span class="currency">£</span><span class="currency-amount">{{item.price3}}</span></div>
-        </td>
-       </tr>
-  
-      </tbody>
-    </table>
-  
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
-</div>
+          <div class="dropdown-selected" (change)="onVariationSelectDropdown($event, i , m)">
+            <select class='form-control'>
+              <option id="{{item.price1}}" value='{{item.variations1}}'>{{item.variations1}}</option>
+              <option id="{{item.price2}}" value='{{item.variations2}}'>{{item.variations2}}</option>
+              <option id="{{item.price3}}" value='{{item.variations3}}'>{{item.variations3}}</option>
+            </select>
+          </div>
+
+          <div class="button-div">
+            <button class="button button3">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Mobile View Ends -->
+
+  <h1 class="heading1">Security, Performance, and Reliability - all in one package</h1>
+  <div class="full-width">
+    <div class="text-left">
+      <h2 class="heading2">Need help getting started? </h2>
+    </div>
+    <div class="text-right">
+      <div class="apply-box">
+        <div class="currency-total"><span class="currency-symb">£</span><span class="currency-total">{{overallPrice}}</span></div>
+        <button class="button button3" (click)="popup = true">Get Started</button>
+      </div>
+    </div>
+  </div>
+  <div class="pricing-table">
+    <div class="" *ngFor="let record of dataSource;let m = index;">
+      <!-- #docregion multi -->
+      <mat-accordion class="example-headers-align" multi>
+        <!-- #enddocregion multi -->
+        <mat-expansion-panel [expanded]="m==0 || m==1">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <table class="">
+                <thead>
+                  <tr>
+                    <th class="table-heading1">{{record.name}}</th>
+                    <th>
+                      <div class="months-title">1st Month</div>
+                    </th>
+                    <th>
+                      <div class="months-title">2nd Month</div>
+                    </th>
+                    <th>
+                      <div class="months-title">3rd Month</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <table class="">
+            <tbody>
+              <tr *ngFor="let item of record.list;let i = index;">
+                <td>
+                  <div class="scope-name">{{item.name}}</div>
+                  <div class="scope-info">
+                    <ng-container *ngIf="item.scope">
+                      <i class="fa fa-info-circle cursor-pointer" (click)="onPopupClick(i , m)" aria-hidden="true"></i>
+                      <div *ngIf="selectedIndex == i" class="popuptext">
+                        <div class="popup-panel">
+                          <div class="fa fa-close cursor-pointer close-icon" (click)="onPopupClick(i , m , 'close')">
+                          </div>
+                          <div> Scope </div>
+                          <div class="popup-content" [innerHtml]="item.scope"></div>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </td>
+                <td
+                  [ngClass]="{'currentlyactive': item.selectedVariation == item.variations1 && item.selectedVariationPrice == item.price1}">
+                  <label>{{item.variations1}}</label><input type="radio" [value]="item.variations1" id="{{item.name}}"
+                    name="{{item.name}}" (change)="onVariationSelect(item.name, item.variations1, i , m , item.price1)"
+                    checked />
+                  <div><span class="currency">£</span><span class="currency-amount">{{item.price1}}</span></div>
+                </td>
+                <td
+                  [ngClass]="{'currentlyactive': item.selectedVariation == item.variations2 && item.selectedVariationPrice == item.price2}">
+                  <label>{{item.variations2}}</label><input type="radio" [value]="item.variations2" id="{{item.name}}"
+                    name="{{item.name}}"
+                    (change)="onVariationSelect(item.name, item.variations2, i,  m , item.price2)" />
+                  <div><span class="currency">£</span><span class="currency-amount">{{item.price2}}</span></div>
+                </td>
+                <td
+                  [ngClass]="{'currentlyactive': item.selectedVariation == item.variations3 && item.selectedVariationPrice == item.price3}">
+                  <label>{{item.variations3}}</label><input type="radio" [value]="item.variations3" id="{{item.name}}"
+                    name="{{item.name}}"
+                    (change)="onVariationSelect(item.name, item.variations3, i,  m , item.price3)" />
+                  <div><span class="currency">£</span><span class="currency-amount">{{item.price3}}</span></div>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
 </div>

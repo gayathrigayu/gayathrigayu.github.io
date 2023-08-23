@@ -5,130 +5,157 @@ $gradient: linear-gradient(35deg, red, purple);
 $option: #320a28;
 
 .pricing-table {
-    overflow-y: auto; /* make the table scrollable if height is more than 200 px  */
-    height: 550px; /* gives an initial height of 200px to the table */
-  }
+    overflow-y: auto;
+    /* make the table scrollable if height is more than 200 px  */
+    height: 550px;
+    /* gives an initial height of 200px to the table */
+}
+
 //   .pricing-table thead th {
 //     position: sticky; /* make the table heads sticky */
 //     top: 0px; /* table head will be placed from the top of the table and sticks to it */
 //     background: $white;
 //     padding-bottom: 20px;
 //   }
-  table {
-    border-collapse: collapse; /* make the table borders collapse to each other */
+table {
+    border-collapse: collapse;
+    /* make the table borders collapse to each other */
     width: 100%;
-  }
-.center-width{
-    .heading1{
+}
+
+.center-width {
+    .heading1 {
         font-size: 42px;
         max-width: 80%;
+
         @media only screen and (max-width: $small) {
             max-width: 100%;
             font-size: 32px;
-          }
+        }
     }
 
-    font-family: "Work Sans",sans-serif;
+    font-family: "Work Sans",
+    sans-serif;
     max-width: 1300px;
     margin: 0 auto;
     width: 100%;
     margin-top: 30px;
-    .table-heading1{
+
+    .table-heading1 {
         font-size: 40px;
         line-height: 44px;
         word-wrap: break-word;
         padding: 20px 20px 20px 0px;
         text-align: left;
+
         @media only screen and (max-width: $small) {
             font-size: 28px;
             line-height: 30px;
         }
     }
+
     th {
         text-align: left;
         font-size: 28px;
         line-height: 1.4em;
+
         @media only screen and (max-width: $small) {
             font-size: 21px;
             line-height: 26px;
             padding-right: 20px;
         }
-        .months-title{
+
+        .months-title {
             color: $coral;
             text-align: center;
         }
     }
+
     tr th:first-child {
         width: 460px;
     }
-    td{
+
+    td {
         font-size: 20px;
         line-height: 1.6em;
         padding: 20px 20px 20px 0;
         border-bottom: 1px solid #ccc;
         text-align: center;
-        &:first-child{
+
+        &:first-child {
             text-align: left;
             width: 40%;
+
             @media only screen and (max-width: $small) {
-                padding :0
+                padding: 0
             }
         }
+
         @media only screen and (max-width: $small) {
             padding: 10px;
         }
-        i{
+
+        i {
             padding-left: 20px
         }
+
         .scope-name {
             width: 80%;
             display: inline-block;
+
             @media only screen and (max-width: $small) {
                 width: 100%;
                 word-wrap: break-word;
             }
         }
-        
+
         .scope-info {
             display: contents;
+
             @media only screen and (max-width: $small) {
                 width: 20%;
             }
         }
+
         @media only screen and (max-width: $small) {
             font-size: 16px;
         }
     }
-    .button{
+
+    .button {
         background-color: $coral;
-        color: $black;
+        color: $white;
         padding: 15px 30px;
         border: none;
         font-weight: 500;
-        transition: background-color .4s ease-in-out,color .4s ease-in-out;
-        margin-top: 20px;
+        transition: background-color .4s ease-in-out, color .4s ease-in-out;
         font-size: 18px;
+
         &:hover {
             cursor: pointer;
             background-color: $black;
             color: $white;
         }
     }
-    .popuptext{
+
+    .popuptext {
         position: relative;
         width: 60%;
         background: #fff;
         display: flex;
         height: 20%;
+
         @media only screen and (max-width: $small) {
-         width:100%;
+            width: 100%;
         }
-        .popup-content{
+
+        .popup-content {
             width: 100%;
             font-size: 14px;
             line-height: 20px;
             margin-top: 10px;
         }
+
         .popup-panel {
             position: absolute;
             top: 0;
@@ -142,10 +169,12 @@ $option: #320a28;
             z-index: 99;
 
         }
-        .close-icon{
+
+        .close-icon {
             float: right;
         }
     }
+
     .text-left {
         max-width: 80%;
         word-wrap: break-word;
@@ -153,28 +182,32 @@ $option: #320a28;
         text-align: left;
         display: inline-block;
         padding: 20px 20px 20px 0;
+
         @media only screen and (max-width: $small) {
             max-width: 100%;
         }
-            
+
     }
-    
+
     .full-width {
         display: block;
         padding: 20px 20px 20px 0;
     }
-    
+
     .text-right {
         display: inline-block;
-        .button{
+
+        .button {
             min-width: 300px;
             padding: 20px;
         }
     }
-    .currentlyactive{
+
+    .currentlyactive {
         background-color: $coral;
         color: $white;
     }
+
     input[type="radio"] {
         /* Add if not using autoprefixer */
         -webkit-appearance: none;
@@ -189,13 +222,14 @@ $option: #320a28;
         transform: translateY(5px);
         display: inline-block;
         cursor: pointer;
+
         @media only screen and (max-width: $small) {
             width: 18px;
             height: 19px;
         }
-      }
-      
-      input[type="radio"]:checked::before {
+    }
+
+    input[type="radio"]:checked::before {
         content: "\f00c";
         font-family: var(--fa-style-family, "Font Awesome 6 Free");
         font-weight: var(--fa-style, 900);
@@ -203,40 +237,64 @@ $option: #320a28;
         position: absolute;
         top: -8px;
         left: 3px;
-      }
-      label{
+    }
+
+    label {
         text-transform: capitalize;
-      }
-    .currency{
+    }
+
+    .currency {
         font-size: 18px;
+
         @media only screen and (max-width: $small) {
             font-size: 14px;
         }
     }
-    .currency-amount{
+
+    .currency-amount {
         font-size: 28px;
+
         @media only screen and (max-width: $small) {
             font-size: 16px;
         }
     }
-    .mob-view{
+
+    .mob-view {
         display: none;
     }
-    .apply-box{
+
+    .apply-box {
         display: flex;
+        text-align: center;
+        align-items: center;
+
+        .currency-symb {
+            font-size: 30px;
+        }
+
+        .currency-total {
+            font-size: 50px;
+            line-height: 5rem;
+            padding-right: 20px;
+        }
     }
+
+
     @media only screen and (max-width: $small) {
-        .pricing-table{
+        .pricing-table {
             display: none;
         }
-        .mob-view{
+
+        .mob-view {
             display: block;
         }
-    /*mobile layout */
+
+        /*mobile layout */
 
         .card-body {
             width: 100%;
         }
+
         .card-component {
             border: none;
             border-radius: 1rem;
@@ -246,13 +304,16 @@ $option: #320a28;
             margin: 20px;
         }
 
-        h5.card-title , .card-price {
+        h5.card-title,
+        .card-price {
             text-align: center;
         }
-        .button-div{
+
+        .button-div {
             text-align: center;
             padding-bottom: 10px;
         }
+
         .dropdown-selected {
             background: $coral;
             width: 80%;
@@ -260,39 +321,42 @@ $option: #320a28;
             text-align: center;
             margin: 0 auto;
         }
-       /* <select> styles */
-select {
-    /* Reset */
-    appearance: none;
-    border: 0;
-    outline: 0;
-    font: inherit;
-    /* Personalize */
-    width: 100%;
-    height: 3em;
-    padding: 0 4em 0 1em;
-    background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg)
-        no-repeat right 0.8em center / 1.4em,
-      linear-gradient(to left, $glass-icon 3em, $glass 3em);
-    color: white;
-    border-radius: 0.25em;
-    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    /* <option> colors */
-    option {
-      color: inherit;
-      background-color: $option;
-    }
-    /* Remove focus outline */
-    &:focus {
-      outline: none;
-    }
-    /* Remove IE arrow */
-    &::-ms-expand {
-      display: none;
-    }
-  }
-  
+
+        /* <select> styles */
+        select {
+            /* Reset */
+            appearance: none;
+            border: 0;
+            outline: 0;
+            font: inherit;
+            /* Personalize */
+            width: 100%;
+            height: 3em;
+            padding: 0 4em 0 1em;
+            background: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg) no-repeat right 0.8em center / 1.4em,
+                linear-gradient(to left, $glass-icon 3em, $glass 3em);
+            color: white;
+            border-radius: 0.25em;
+            box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+
+            /* <option> colors */
+            option {
+                color: inherit;
+                background-color: $option;
+            }
+
+            /* Remove focus outline */
+            &:focus {
+                outline: none;
+            }
+
+            /* Remove IE arrow */
+            &::-ms-expand {
+                display: none;
+            }
+        }
+
 
         h5.card-title {
             font-size: 20px;
@@ -304,6 +368,7 @@ select {
             font-size: 18px;
             margin: 20px 0;
         }
+
         .scope-name {
             display: inline-block;
             width: 230px;
@@ -312,29 +377,118 @@ select {
             line-height: 24px;
             text-align: center;
         }
-        
+
         .scope-info {
             display: inline;
             padding-left: 20px;
         }
-        
+
         ul.fa-ul {
             margin-left: 20px;
         }
-        .popup-panel{
-            left:0 !important
+
+        .popup-panel {
+            left: 0 !important
         }
-/* Ends here */
+
+        /* Ends here */
     }
+
+    /* Overlay Popup Starts here */
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.7);
+        transition: opacity 500ms;
+        visibility: visible;
+        opacity: 1;
+        z-index: 2;
+
+        .client-form-input {
+            border: 1px solid #d5d5d5;
+            font-size: 15px;
+            padding: 8px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .client-label {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .submit-txt {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+        }
+    }
+
+
+    .popup {
+        margin: 70px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 5px;
+        width: 30%;
+        position: relative;
+        transition: all 5s ease-in-out;
+    }
+
+    .popup h2 {
+        margin-top: 0;
+        color: #333;
+        font-family: Tahoma, Arial, sans-serif;
+    }
+
+    .popup .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        transition: all 200ms;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        color: #333;
+    }
+
+    .popup .close:hover {
+        color: #06D85F;
+        cursor: pointer;
+    }
+
+    .popup .content {
+        max-height: 30%;
+        overflow: auto;
+    }
+
+    @media screen and (max-width: 700px) {
+
+        .popup {
+            width: 70%;
+        }
+    }
+
+    /* Overlay Popup Ends here */
 }
 
 /* mat css override starts*/
 
 ::ng-deep {
-    .pricing-table .mat-accordion > .mat-expansion-panel {
+    .pricing-table .mat-accordion>.mat-expansion-panel {
         border: 0;
         box-shadow: none;
     }
-   }
 
-   /* mat css override ends */
+    .pricing-table .mat-accordion .mat-expansion-panel-header {
+        height: auto;
+    }
+}
+
+/* mat css override ends */

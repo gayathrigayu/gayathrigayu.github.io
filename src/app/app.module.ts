@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { PricingGridComponent } from './pricing-grid/pricing-grid.component';
 import { DataTableComponent } from './shared/data-table/data-table.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
