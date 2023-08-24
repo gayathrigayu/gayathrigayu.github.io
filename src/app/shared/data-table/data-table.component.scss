@@ -312,7 +312,20 @@ table {
         .button-div {
             text-align: center;
             padding-bottom: 10px;
+            button{
+                margin-top: 20px;
+            }
         }
+        .full-width{
+            padding: 20px;
+            .text-left{
+                padding: 10px;
+            }
+            .apply-box,.text-right{
+                display: block;
+            }
+        }
+        
 
         .dropdown-selected {
             background: $coral;
@@ -412,8 +425,14 @@ table {
             border: 1px solid #d5d5d5;
             font-size: 15px;
             padding: 8px;
-            width: 100%;
+            width: 90%;
             margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .invalid-feedback {
+            padding: 3px 0 10px 0;
+            font-size: 12px;
+            color: $coral;
         }
 
         .client-label {
@@ -427,6 +446,9 @@ table {
             text-align: center;
             display: block;
             margin-top: 20px;
+        }
+        button{
+            margin-top: 10px;
         }
     }
 
