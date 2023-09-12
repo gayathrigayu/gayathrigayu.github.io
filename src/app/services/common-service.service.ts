@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,14 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class CommonServiceService {
 
-  
+  toggleBaseUrl = 'https://api.track.toggl.com/api/';
+  toggleWorkspaceId = 538676;
   constructor(private http: HttpClient) {
-    this.getJSON().subscribe(data => {
-        console.log(data);
-    });
-}
 
-public getJSON(): Observable<any> {
+  }
+
+  public getJSON(): Observable<any> {
     return this.http.get("./assets/Pricing.json");
-}
+  }
+
+  public connectToggleApi() {
+    const headers= new HttpHeaders().set('Content-Type', 'application/json').set('Authorization','Basic Z2F5YXRocmlAd2VhcmV0ZWxlc2NvcGljLmNvLnVrOlZpdmVrMTIz').set('Accept', 'application/json');
+    return this.http.get(this.toggleBaseUrl+'v9/workspaces/'+this.toggleWorkspaceId + '/projects', { 'headers': headers });
+  }
 }

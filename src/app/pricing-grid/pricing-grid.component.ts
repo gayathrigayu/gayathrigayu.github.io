@@ -15,5 +15,21 @@ export class PricingGridComponent implements OnInit{
         this.tableData = data;
         this.showTable = true;
     });
+    this.callToggle();
+  }
+
+  callToggle() {
+    fetch("https://api.track.toggl.com/api/v9/workspaces/538676/projects", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+"Authorization": "Basic Z2F5YXRocmlAd2VhcmV0ZWxlc2NvcGljLmNvLnVrOlZpdmVrMTIz"
+  },
+})
+.then((resp) => resp.json())
+.then((json) => {
+  console.log(json);
+})
+.catch(err => console.error(err));
   }
 }
